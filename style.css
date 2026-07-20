@@ -1,0 +1,485 @@
+/* =========================================================
+   AUTOMOTIVE SPARE PARTS — QR LANDING PAGE
+   style.css · Premium Light Luxury Design
+   ========================================================= */
+
+/* ——————————————————————————————————————
+   CSS CUSTOM PROPERTIES (Design Tokens)
+   —————————————————————————————————————— */
+:root {
+  /* Colors */
+  --color-bg:            #FAFAFA;
+  --color-card:          #FFFFFF;
+  --color-primary:       #1E3A5F;
+  --color-primary-light: #254b7a;
+  --color-silver:        #BFC5CC;
+  --color-sky:           #EAF4FF;
+  --color-text:          #1F2937;
+  --color-text-muted:    #6B7280;
+  --color-facebook:      #1877F2;
+  --color-facebook-hover:#1560cc;
+  --color-whatsapp:      #25D366;
+  --color-whatsapp-hover:#1dba58;
+  --color-divider:       #E5E8EC;
+
+  /* Typography */
+  --font-family: 'Poppins', sans-serif;
+
+  /* Spacing */
+  --space-xs:  0.5rem;
+  --space-sm:  1rem;
+  --space-md:  1.5rem;
+  --space-lg:  2rem;
+  --space-xl:  3rem;
+  --space-2xl: 4rem;
+
+  /* Borders */
+  --radius-sm:   8px;
+  --radius-md:   16px;
+  --radius-lg:   24px;
+  --radius-full: 999px;
+
+  /* Shadows */
+  --shadow-card: 0 4px 24px rgba(30, 58, 95, 0.07), 0 1px 6px rgba(30, 58, 95, 0.04);
+  --shadow-card-hover: 0 12px 40px rgba(30, 58, 95, 0.14), 0 3px 12px rgba(30, 58, 95, 0.08);
+  --shadow-btn:  0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-btn-hover: 0 8px 28px rgba(0, 0, 0, 0.2);
+
+  /* Transitions */
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ——————————————————————————————————————
+   RESET & BASE
+   —————————————————————————————————————— */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+img, svg {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ——————————————————————————————————————
+   DECORATIVE BACKGROUND
+   —————————————————————————————————————— */
+.bg-decoration {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bg-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ——————————————————————————————————————
+   PAGE WRAPPER
+   —————————————————————————————————————— */
+.page-wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xl);
+  min-height: 100vh;
+}
+
+/* ——————————————————————————————————————
+   HEADER
+   —————————————————————————————————————— */
+.site-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: var(--space-lg);
+}
+
+/* Logo Container */
+.logo-container {
+  margin-bottom: var(--space-md);
+}
+
+/* Logo Placeholder (replace with <img> tag when ready) */
+.logo-placeholder {
+  width: 88px;
+  height: 88px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 28px rgba(30, 58, 95, 0.28);
+  margin: 0 auto;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.logo-placeholder:hover {
+  transform: translateY(-2px) rotate(8deg);
+  box-shadow: 0 10px 36px rgba(30, 58, 95, 0.36);
+}
+
+.logo-icon {
+  font-size: 2.2rem;
+  color: #FFFFFF;
+  animation: spin-slow 12s linear infinite;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Business Name */
+.business-name {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: var(--space-xs);
+}
+
+/* Sub-title */
+.business-subtitle {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: var(--space-md);
+}
+
+/* Header Divider */
+.header-divider {
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-silver));
+  border-radius: var(--radius-full);
+  margin: 0 auto var(--space-md);
+}
+
+/* Welcome Text */
+.welcome-text {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  max-width: 320px;
+}
+
+/* ——————————————————————————————————————
+   CONTACT SECTION
+   —————————————————————————————————————— */
+.contact-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* ——————————————————————————————————————
+   CONTACT CARD BASE
+   —————————————————————————————————————— */
+.contact-card {
+  background: var(--color-card);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-md);
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(191, 197, 204, 0.3);
+  transition: transform var(--transition), box-shadow var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle top accent stripe */
+.contact-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.card-facebook::before { background: linear-gradient(90deg, #1877F2, #42a5f5); }
+.card-whatsapp::before { background: linear-gradient(90deg, #25D366, #4cdd8a); }
+
+.contact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* ——————————————————————————————————————
+   CARD ICON WRAPPER
+   —————————————————————————————————————— */
+.card-icon-wrapper {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform var(--transition);
+}
+
+.contact-card:hover .card-icon-wrapper {
+  transform: scale(1.08);
+}
+
+.facebook-icon-bg {
+  background: linear-gradient(135deg, #1877F2 0%, #42a5f5 100%);
+  box-shadow: 0 4px 16px rgba(24, 119, 242, 0.3);
+}
+
+.whatsapp-icon-bg {
+  background: linear-gradient(135deg, #25D366 0%, #4cdd8a 100%);
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+}
+
+.card-icon {
+  font-size: 1.85rem;
+  color: #FFFFFF;
+}
+
+/* ——————————————————————————————————————
+   CARD CONTENT
+   —————————————————————————————————————— */
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.card-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: -0.01em;
+}
+
+.card-description {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  font-weight: 400;
+  max-width: 280px;
+  line-height: 1.55;
+}
+
+/* ——————————————————————————————————————
+   BUTTONS
+   —————————————————————————————————————— */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 2.2rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  color: #FFFFFF;
+  box-shadow: var(--shadow-btn);
+  transition:
+    background-color var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
+  width: 100%;
+  max-width: 320px;
+  white-space: nowrap;
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* Lift on hover */
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-btn-hover);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+}
+
+/* Icon inside button */
+.btn-icon {
+  font-size: 1.1rem;
+}
+
+/* Facebook Button */
+.btn-facebook {
+  background: linear-gradient(135deg, #1877F2 0%, #1560cc 100%);
+}
+.btn-facebook:hover {
+  background: linear-gradient(135deg, #1560cc 0%, #1048aa 100%);
+}
+
+/* WhatsApp Button */
+.btn-whatsapp {
+  background: linear-gradient(135deg, #25D366 0%, #1dba58 100%);
+}
+.btn-whatsapp:hover {
+  background: linear-gradient(135deg, #1dba58 0%, #18a04a 100%);
+}
+
+/* ——————————————————————————————————————
+   FOOTER
+   —————————————————————————————————————— */
+.site-footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  padding-bottom: var(--space-lg);
+}
+
+.footer-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-divider), transparent);
+}
+
+.footer-text {
+  font-size: 0.82rem;
+  color: var(--color-silver);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* ——————————————————————————————————————
+   ANIMATIONS
+   —————————————————————————————————————— */
+
+/* Initial hidden state (JS will trigger reveal) */
+.animate-fade-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.animate-fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays */
+.delay-1 { transition-delay: 0.12s; }
+.delay-2 { transition-delay: 0.24s; }
+
+/* ——————————————————————————————————————
+   RESPONSIVE — TABLET & UP (≥ 540px)
+   —————————————————————————————————————— */
+@media (min-width: 540px) {
+  .contact-card {
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
+    padding: var(--space-lg) var(--space-xl);
+    gap: var(--space-lg);
+  }
+
+  .card-content {
+    flex: 1;
+  }
+
+  .card-description {
+    max-width: 100%;
+  }
+
+  .btn {
+    width: auto;
+    min-width: 190px;
+  }
+
+  /* Stack: icon | content | button */
+  .contact-card {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto;
+    align-items: center;
+  }
+}
+
+/* ——————————————————————————————————————
+   RESPONSIVE — SMALL PHONES (≤ 360px)
+   —————————————————————————————————————— */
+@media (max-width: 360px) {
+  .page-wrapper {
+    padding: var(--space-lg) var(--space-sm);
+  }
+
+  .business-name {
+    font-size: 1.4rem;
+  }
+
+  .card-icon-wrapper {
+    width: 60px;
+    height: 60px;
+  }
+
+  .card-icon {
+    font-size: 1.5rem;
+  }
+
+  .btn {
+    padding: 0.78rem 1.6rem;
+    font-size: 0.88rem;
+  }
+}
+
+/* ——————————————————————————————————————
+   ULTRA WIDE (≥ 1400px)
+   —————————————————————————————————————— */
+@media (min-width: 1400px) {
+  .page-wrapper {
+    padding-top: var(--space-2xl);
+  }
+}
